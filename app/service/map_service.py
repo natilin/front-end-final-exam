@@ -68,4 +68,3 @@ def get_most_active_groups_per_country_map(country: str = None):
     m.save("mapp.html")
 
 
-get_most_active_groups_per_country_map()
