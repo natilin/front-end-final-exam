@@ -36,3 +36,9 @@ def get_most_active_groups_per_country(country: str=None):
     if country:
         url += f"?country={country}"
     return requests.get(url).json()
+
+def get_most_common_attack_type_per_country(country: str=None):
+    url = f"http://localhost:5000/api/terrorism/most-active-targets"
+    if country:
+        url += f"?country={country}"
+        return requests.get(url).json()

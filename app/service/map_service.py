@@ -40,10 +40,13 @@ def get_group_with_common_target_map(country: str = None):
     m = folium.Map(location=[0, 0], zoom_start=2)
     for region in all_target:
         popup_text = f"country:{region['country']} groups_name:{region['groups_name']}"
-        folium.Marker(
-            location=[region['latitude'], region['longitude']],
-            popup=popup_text
-        ).add_to(m)
+        try:
+            folium.Marker(
+                location=[region['latitude'], region['longitude']],
+                popup=popup_text
+            ).add_to(m)
+        except:
+            pass
 
     m.save("mapp.html")
 
@@ -66,5 +69,4 @@ def get_most_active_groups_per_country_map(country: str = None):
             pass
 
     m.save("mapp.html")
-
 
