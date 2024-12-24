@@ -1,0 +1,48 @@
+/* static/css/styles.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+#header {
+    padding: 0 1rem;
+}
+
+#btn {
+    font-family: "Roboto Condensed", serif;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d3d3d3;
+    transition: 500m ease-in-out;
+}
+
+#btn:hover {
+    cursor: pointer;
+    background: #d3d3d3;
+}
+
+#btn:focus {
+    transition: none;
+    background:  #525252;
+
+}
+
+iframe {
+    width: 100%;
+    height: calc(100% - 50px);
+    border: none;
+}
+.query-form {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #d3d3d3;
+}
+
+#all-terror-event-map {
+    display: none;
+}

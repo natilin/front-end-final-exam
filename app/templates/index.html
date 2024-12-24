@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terror Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Terror Dashboard</h1>
+    </div>
+    <div>
+        <div class="query-form" id="average-death-map">
+            <label for="query_type">Choose Query:</label>
+            <select id="query_type">
+                <option value="average-death-map">Average Death Map</option>
+                <option value="all-terror-event-map">All Terror Event Map</option>
+                <option value="keyword-terror-search">terror keyword Map</option>
+            </select>
+            <button type="button" id="btn" onclick="getImage()">Generate Map</button>
+        </div>
+        <div class="query-form" id="all-terror-event-map">
+            <label for="start_date"></label>
+            <input class="submit-value" type="date" name="" id="start_date">
+            <select class="submit-value" name="" id="date_type">
+                <option value="day">Day</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+            </select>
+            <label for="date_amount">Next Date</label>
+            <input class="submit-value" type="number"  id="date_amount" min="1">
+        </div>
+
+        <div class="query-form" id="keyword-terror-search">
+            <label for="keyword"></label>
+            <input class="submit-value" type="text" name="" id="keyword">
+        </div>
+
+    </div>
+
+    <!-- <iframe id="map-frame" src=""></iframe> -->
+    <div id="main">
+
+    </div>
+
+    <!-- JavaScript -->
+    <!--    <script src="{{ url_for('static', filename='/scripts.js') }}"></script>-->
+    <script src="{{ url_for('static', filename='/index.js') }}"></script>
+</body>
+
+</html>
