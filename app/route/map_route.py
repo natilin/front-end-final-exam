@@ -44,3 +44,6 @@ def average_death_map():
         return jsonify({"error": str(e)}), 500
 
 
+
+
+
