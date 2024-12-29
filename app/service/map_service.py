@@ -2,6 +2,7 @@ import folium
 from folium.plugins import HeatMap
 from app.api.api import get_average_death_by_region, get_all_terror_event, get_all_events_by_date_range, \
     get_group_with_common_target, get_most_active_groups_per_country, get_group_attack_by_country
+from app.service.location_service import get_country_coords
 
 
 def get_default_map():
@@ -76,7 +77,17 @@ def get_group_attack_by_country_map(country: str = None):
     all_groups = get_group_attack_by_country(country)
     m = folium.Map(location=[0, 0], zoom_start=2)
     for country in all_groups:
-        popup_text = f"country:{country['country']} group:{country['attack_groups']}"
+        try:
+            popup_text = f"country:{country['country']} group:{country['attack_groups']}"
+            lat, lng = get_country_coords(country["country"])
+            folium.Marker(
+                location=[lat, lng],
+                popup=popup_text
+            ).add_to(m)
+        except:
+            pass
+    m.save("mapp2.html")
+    return m
 
 
 get_group_attack_by_country_map()
