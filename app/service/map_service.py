@@ -1,7 +1,8 @@
 import folium
 from folium.plugins import HeatMap
 from app.api.api import get_average_death_by_region, get_all_terror_event, get_all_events_by_date_range, \
-    get_group_with_common_target, get_most_active_groups_per_country, get_group_attack_by_country
+    get_group_with_common_target, get_most_active_groups_per_country, get_group_attack_by_country, \
+    get_most_common_attack_type_per_country
 from app.service.location_service import get_country_coords
 
 
@@ -48,7 +49,7 @@ def get_group_with_common_target_map(country: str = None):
         except:
             pass
 
-    m.save("mapp.html")
+    m.save("map1.html")
     return m
 
 
@@ -69,7 +70,7 @@ def get_most_active_groups_per_country_map(country: str = None):
         except:
             pass
 
-    m.save("mapp.html")
+    m.save("map2.html")
     return m
 
 
@@ -86,8 +87,17 @@ def get_group_attack_by_country_map(country: str = None):
             ).add_to(m)
         except:
             pass
-    m.save("mapp2.html")
+    m.save("map3.html")
     return m
 
 
+def get_most_common_attack_type_per_country_map(country: str = None):
+    all_groups = get_most_common_attack_type_per_country(country)
+    m = folium.Map(location=[0, 0], zoom_start=2)
+    for country in all_groups:
+        pass
+
+
 get_group_attack_by_country_map()
+get_group_with_common_target_map()
+get_most_active_groups_per_country_map()
